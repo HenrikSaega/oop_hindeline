@@ -12,20 +12,28 @@ class School{
     }
     addStudent(student){
         if(student.age() > 18){
-            if(this.courses.indexOf(student) === -1){
+            if(this.students.indexOf(student) === -1){
                 student.setId(Math.random().toString)
                 this.students.push(student)
             }
         }
     }
     addStudentGrade(student, course, grade){
-        if(this.courses.indexOf(student) !== -1 && (this.courses.indexOf(course) !== -1)){
-            student.addGrade(crouse, grade)
-            course.addGrade(student. grade)
+        if(this.students.indexOf(student) !== -1 && this.courses.indexOf(course) !== -1){
+            student.addGrade(course, grade)
+            course.addGrade(course, grade)
         }
     }
+    getStudents(){
+        return this.students
+    }
+    getCourses(){
+        return this.courses
+    }
+
+    getStudentsOrderedByAverageGrade(){
+         return [this.students].sort((a, b) => b.getAverageGrade() - a.getAverageGrade())
+    }
 }
-
-
 
 module.exports = School

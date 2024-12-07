@@ -7,9 +7,9 @@ class Student extends Person{
         this.grades = []
     } 
 
-    setId(id){
+    setId(){
         if(this.id === null){
-            this.id = id
+            this.id = Math.random()
         }
     }
     getId(){
@@ -25,12 +25,16 @@ class Student extends Person{
     getGrades(){
         return this.grades
     }
-    GetAverageGrade(){
-        if(this.grades === 0){
+    getAverageGrade(){
+        if((this.grades).length === 0){
             return -1;
         } else{
-            return 0
+            let sum = this.grades.reduce((acc, currecntValue) => {return acc + currecntValue.grade}, 0)
+            return sum / this.grades.length
         }
+    }
+    description(){
+        return `Student ${this.name}`
     }
 }
 
